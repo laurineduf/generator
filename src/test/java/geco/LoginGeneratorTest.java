@@ -34,6 +34,14 @@ public class LoginGeneratorTest {
     }
 
 
+    @Test
+    public void CT5() {
+        LoginService s = new LoginService(new String[] {"JROL","BPER", "CGUR", "JDU", "JRAL", "JRAL1"});
+        LoginGenerator g = new LoginGenerator(s);
+        assertEquals("Erreur: login non généré", "PDU", g.generateLoginForNomAndPrenom("Du", "Paul"));
+    }
+
+
 }
 
 

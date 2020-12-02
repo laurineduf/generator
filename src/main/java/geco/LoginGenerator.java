@@ -34,9 +34,16 @@ public class LoginGenerator {
      * @return le login genere
      */
     public String generateLoginForNomAndPrenom(String nom, String prenom) {
-        String p = deAccent(prenom.substring(0,1).toUpperCase());
-        String n = deAccent(nom.substring(0,3).toUpperCase());
-        String login = p+n ;
+        String p = "";
+        String n = "";
+;        if (nom.length() >= 3) {
+            p = deAccent(prenom.substring(0,1).toUpperCase());
+            n = deAccent(nom.substring(0,3).toUpperCase());
+        } else {
+            p = deAccent(prenom.substring(0,1).toUpperCase());
+            n = deAccent(nom.substring(0,2).toUpperCase());
+        }
+        String login = p+n;
         String logBase = login;
         int i = 0;
         while (loginService.loginExists(login)) {
